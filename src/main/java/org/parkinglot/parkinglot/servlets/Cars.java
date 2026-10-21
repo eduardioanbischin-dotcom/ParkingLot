@@ -1,8 +1,10 @@
 package org.parkinglot.parkinglot.servlets;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
@@ -11,6 +13,7 @@ public class Cars extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("NumberOfFreeParkingSpots", 10);
+        request.setAttribute("activePage", "Cars");
         request.getRequestDispatcher("/WEB-INF/pages/cars.jsp").forward(request,response);
 
 
